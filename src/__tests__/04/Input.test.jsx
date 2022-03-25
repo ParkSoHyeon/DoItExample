@@ -48,7 +48,7 @@ describe('<Input>', () => {
         // simulate(): 가상 이벤트 작동
         it(' calls back onChange on input change', () => {
             const changeStub = jest.fn();
-            const wrapper = shallow(<input name="test_name" onChange={changeStub} />);
+            const wrapper = shallow(<Input name="test_name" onChange={changeStub} />);
             expect(changeStub).not.toHaveBeenCalled();
             const expectedTargetValue = 'updated input';
             wrapper.find('input').simulate('change', { target: { value: expectedTargetValue } });
