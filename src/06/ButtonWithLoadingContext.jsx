@@ -12,7 +12,7 @@ function ButtonWithLoadingContext({ children, loading, setLoading }) {
 }
 
 ButtonWithLoadingContext.propTypes = {
-    label: PropTypes.string,
+    children: PropTypes.string,
     loading: PropTypes.bool,
     setLoading: PropTypes.func,
 }
