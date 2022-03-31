@@ -4,6 +4,7 @@ import {
     ButtonWithOtherLoadingContext,
 } from './ButtonWithLoadingContextAndKey';
 import LoadingProviderWithKey from './LoadingProviderWithKey';
+import ButtonWithLoadingContextAndKey from "./createButtonWithLoadingContextAndKey";
 
 const LoadingProvider1 = LoadingProviderWithKey();
 const LoadingProvider2 = LoadingProviderWithKey('otherLoading');
@@ -13,6 +14,7 @@ function TableComponent() {
         <table>
             <ButtonWithDefaultLoadingContext>컨텍스트1</ButtonWithDefaultLoadingContext>
             <ButtonWithOtherLoadingContext>컨텍스트2</ButtonWithOtherLoadingContext>
+            <ButtonWithLoadingContextAndKey>다중 소비자 예제</ButtonWithLoadingContextAndKey>
         </table>
     )
 }
