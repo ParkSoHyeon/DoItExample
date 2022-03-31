@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Button from '../04/Button';
-// import ButtonWithContext from './ButtonWithContext';
+import ButtonWithContext from './ButtonWithLoadingContext';
 
 function RowBComponent() {
     return <Button>버튼</Button>;
@@ -31,7 +31,7 @@ class HomePageComponent extends PureComponent {
     getChildContext() {
         return {
             loading: this.state.loading,
-            setLoading: this.state.setLoading,
+            setLoading: this.setLoading,
         }
     }
 
