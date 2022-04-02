@@ -11,6 +11,18 @@ const reducer = (state, action) => {
                 loading: payload
             };
         }
+        case 'RESET_LOADING': {
+            return {
+                ...state,
+                loading: false
+            }
+        }
+        case 'SET_USER': {
+            return {
+                ...state,
+                user: payload
+            }
+        }
         default: return state
     }
 }
@@ -25,7 +37,12 @@ class ReduxApp01 extends PureComponent {
         this.store.dispatch({
             type: 'SET_LOADING',
             payload: true
-        })
+        });
+        this.store.dispatch({ type: 'RESET_LOADING' });
+        this.store.dispatch({
+            type: 'SET_USER',
+            payload: { name: 'Park', age: 27 }
+        });
     }
     render() {
         return (
