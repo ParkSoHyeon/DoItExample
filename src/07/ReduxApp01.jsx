@@ -8,6 +8,12 @@ class ReduxApp01 extends PureComponent {
         { loading: false, name: '두잇 리액트' },
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
+    componentDidMount() {
+        this.store.dispatch({
+            type: 'SET_LOADING',
+            payload: true
+        })
+    }
     render() {
         return (
             <Provider store={this.store}>리덕스 예제</Provider>
