@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from "./configureStore";
 import { setLoading, resetLoading } from "./actions/loadingActions";
 import { setUser } from "./actions/userActions";
-import { setCollection } from "./actions/collectionActions";
+import {setAge, setCollection} from "./actions/collectionActions";
 
 class ReduxApp01 extends PureComponent {
     store = configureStore({ loading: false });
@@ -15,6 +15,11 @@ class ReduxApp01 extends PureComponent {
             { id: 1, name: 'Park', age: 27 },
             { id: 2, name: 'Choi', age: 20 },
         ]));
+        this.store.dispatch(setAge(2, 35));
+        const { collection } = this.store.getState();
+        const { ids, entities } = collection;
+        const originalPayload = ids.map(id => entities[id]);
+        console.log(originalPayload);
     }
     render() {
         return (
