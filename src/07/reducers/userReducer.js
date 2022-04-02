@@ -4,7 +4,7 @@ export default function reducer(state = {}, action) {
         case 'SET_USER': {
             return {
                 ...state,
-                user: payload
+                ...payload
             }
         }
         default:
