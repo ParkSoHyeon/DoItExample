@@ -4,6 +4,7 @@ import configureStore from "./configureStore";
 import {setAge, setCollection} from "./actions/collectionActions";
 import PresentationComponent from "./PresentationComponent";
 import ContainerComponent from "./containers/ContainerComponent";
+import DispatchContainer from "./containers/DispatchContainer";
 
 class ReduxApp02 extends PureComponent {
     store = configureStore({ loading: false });
@@ -24,6 +25,8 @@ class ReduxApp02 extends PureComponent {
                 화면 컴포넌트: <PresentationComponent userName="화면 컴포넌트" />
                 <br />
                 데이터 컴포넌트: <ContainerComponent id={2} />
+                <br />
+                액션 데이터 컴포넌트: <DispatchContainer />
             </Provider>
         );
     }
