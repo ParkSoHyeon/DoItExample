@@ -44,6 +44,11 @@ export default {
     sm: '24px',
     xs: '18px',
   },
+  fontWeight: {
+    bold: 'bold',
+    normal: 'normal',
+    light: 300,
+  },
   depth: {
     level1: {
       boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.14)',
