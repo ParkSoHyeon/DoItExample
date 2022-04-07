@@ -5,12 +5,13 @@ import Card from "../../../doit-ui/Card";
 import InlineList from "../../../doit-ui/InlineList";
 import Text from "../../../doit-ui/Text";
 import PropTypes from "prop-types";
-import Modal from "../../../doit-ui/Modal";
-import {TRADE_COIN_MODAL} from "../../constants/modals";
+import { Consumer as Modal } from "../../../doit-ui/Modal/context";
+import { TRADE_COIN_MODAL } from "../../constants/modals";
 
 class CoinDashlet extends PureComponent {
     render() {
         const { name, priceLabel } = this.props;
+
         return (
             <Modal>
                 {({ openModal }) => (
