@@ -22,13 +22,13 @@ class CoinDashlet extends PureComponent {
                         <InlineList spacingBetween={1}>
                             <Button
                                 primary small
-                                onPress={() => openModal(TRADE_COIN_MODAL, { type: 'buy', name, price: priceLabel })}
+                                onPress={() => openModal(TRADE_COIN_MODAL, { type: 'sell', name, price: priceLabel })}
                             >
                                 매도
                             </Button>
                             <Button
                                 small
-                                onPress={() => openModal(TRADE_COIN_MODAL, { type: 'sell', name, price: priceLabel })}
+                                onPress={() => openModal(TRADE_COIN_MODAL, { type: 'buy', name, price: priceLabel })}
                             >
                                 매수
                             </Button>
