@@ -5,21 +5,16 @@ import Card from "../../../doit-ui/Card";
 
 import TransactionSearchFilter from "./TransactionSearchFilter";
 import TransactionTable from "./TransactionTable";
-import TableCell from "../../../doit-ui/TableCell";
-import PropTypes from "prop-types";
 import Api from "../../Api";
 
 class TransactionList extends PureComponent {
-    state = {
-        transactions: [],
-    }
     componentDidMount() {
-        Api.get('/transactions', { params: { id: 1 } })
-            .then(response => this.setState({ transactions: response.data }));
+        Api.get('/transactions')
+            .then(({ data }) => this.props.setTransactionList(data));
     }
 
     render() {
-        const { transactions } = this.state;
+        const { transactions } = this.props;
         return (
             <div>
                 <Heading level={3}>거래 현황</Heading>
@@ -32,6 +27,11 @@ class TransactionList extends PureComponent {
             </div>
         );
     }
+}
+
+TransactionList.defaultProps = {
+    transactions: [],
+    setTransactionList: () => {},
 }
 
 export default TransactionList;
