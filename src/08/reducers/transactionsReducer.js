@@ -1,9 +1,14 @@
-import { SET_TRANSACTION_LIST, LOADING_TRANSACTION_LIST } from "../actions/transactionActions";
+import {
+    SET_TRANSACTION_LIST,
+    LOADING_TRANSACTION_LIST,
+    SET_ERROR,
+} from "../actions/transactionActions";
 
 const initState = {
     ids: [],
     entities: {},
     loading: false,
+    hasError: false,
 }
 
 export default (state = initState, action) => {
@@ -14,6 +19,7 @@ export default (state = initState, action) => {
             return {
                 ...state,
                 loading: true,
+                hasError: false,
             }
         }
         case SET_TRANSACTION_LIST: {
@@ -28,6 +34,16 @@ export default (state = initState, action) => {
                 ids,
                 entities,
                 loading: false,
+                hasError: false,
+            }
+        }
+        case SET_ERROR: {
+            const { errorMessage } = payload;
+            return {
+                ...state,
+                loading: false,
+                hasError: true,
+                errorMessage,
             }
         }
         default:
