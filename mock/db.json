@@ -17,6 +17,14 @@
       "currentPrice": 20000,
       "amount": 10,
       "datetime": "2019/01/20 07:23:22"
+    },
+    {
+      "id": 3,
+      "code": "DOIT",
+      "name": "두잇코인(DOIT)",
+      "totalPrice": 1000000000,
+      "currentPrice": 25000,
+      "datetime": "2019/01/20 06:23:22"
     }
   ]
 }
