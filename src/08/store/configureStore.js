@@ -2,6 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducers from "../reducers";
 import thunk from "redux-thunk";
+import notificationEffects from "../middlewares/notificationEffects";
 
 // 미들웨어 동작 sample
 import {SET_TRANSACTION_LIST} from "../actions/transactionActions";
@@ -41,5 +42,5 @@ import {SET_TRANSACTION_LIST} from "../actions/transactionActions";
 export default initState => createStore(
     combineReducers(reducers),
     initState,
-    composeWithDevTools(applyMiddleware(thunk)),
+    composeWithDevTools(applyMiddleware(thunk, notificationEffects)),
 )

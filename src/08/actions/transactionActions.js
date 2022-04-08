@@ -24,7 +24,7 @@ export function requestTransactionList(params) {
         Api.get('/transactions', { params })
             .then(
                 ({ data }) => dispatch(setTransactionList(data)),
-                error => dispatch(showNotification(error.response.data.errorMessage, true))
+                error => dispatch(setError(error.response.data.errorMessage, true))
             );
     }
 }
