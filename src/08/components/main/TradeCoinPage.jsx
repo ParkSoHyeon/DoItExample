@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import PropTypes from "prop-types";
-import Api from "../../Api";
 import InlineList from "../../../doit-ui/InlineList";
 import Spacing from "../../../doit-ui/Spacing";
 import Button from "../../../doit-ui/Button";
@@ -17,15 +16,14 @@ class TradeCoinPage extends PureComponent {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(values, closeModal) {
-        const { name, code } = this.props;
+        const { name, code, createTransaction } = this.props;
         const formValues = {
             ...values,
             code,
             name,
         };
 
-        Api.post('/transactions', formValues)
-            .then(() => closeModal());
+        createTransaction(formValues, closeModal);
     }
     render() {
         const { name, price, type } = this.props;
