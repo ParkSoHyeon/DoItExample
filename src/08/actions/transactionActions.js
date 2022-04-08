@@ -1,9 +1,9 @@
 import Api from "../Api";
-import {showNotification} from "./notificationActions";
 
 export const LOADING_TRANSACTION_LIST = 'transaction/LOADING_TRANSACTION_LIST';
 export const SET_TRANSACTION_LIST = 'transaction/SET_TRANSACTION_LIST';
 export const SET_ERROR = 'transaction/SET_ERROR';
+export const TRADE_COMPLETE = 'transaction/TRADE_COMPLETE';
 
 export function loading() {
     return {
@@ -34,4 +34,22 @@ export function setError(errorMessage) {
         type: SET_ERROR,
         payload: { errorMessage },
     }
+}
+
+export function tradeComplete() {
+    return {
+        type: TRADE_COMPLETE,
+    }
+}
+
+export function createTransaction(data, onComplete) {
+    return dispatch =>
+        Api.post('/transactions', data)
+            .then(({ data }) => {
+                dispatch(tradeComplete());
+                onComplete();
+            },
+            error => dispatch(setError(error.response.data.errorMessage)),
+            );
+
 }
