@@ -6,6 +6,7 @@ import notificationEffects from "../middlewares/notificationEffects";
 
 // 미들웨어 동작 sample
 import {SET_TRANSACTION_LIST} from "../actions/transactionActions";
+import transactionEffects from "../middlewares/transactionEffects";
 // const customMiddleware2 = store => nextRunner => action => {
 //     console.log('미들웨어2에 전달된 액션 객체', action);
 //     console.log('미들웨어2 실행 전', store.getState());
@@ -42,5 +43,5 @@ import {SET_TRANSACTION_LIST} from "../actions/transactionActions";
 export default initState => createStore(
     combineReducers(reducers),
     initState,
-    composeWithDevTools(applyMiddleware(thunk, notificationEffects)),
+    composeWithDevTools(applyMiddleware(thunk, notificationEffects, transactionEffects)),
 )
