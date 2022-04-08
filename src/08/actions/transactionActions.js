@@ -1,4 +1,5 @@
 import Api from "../Api";
+import {showNotification} from "./notificationActions";
 
 export const LOADING_TRANSACTION_LIST = 'transaction/LOADING_TRANSACTION_LIST';
 export const SET_TRANSACTION_LIST = 'transaction/SET_TRANSACTION_LIST';
@@ -23,7 +24,7 @@ export function requestTransactionList(params) {
         Api.get('/transactions', { params })
             .then(
                 ({ data }) => dispatch(setTransactionList(data)),
-                error => dispatch(setError(error.response.data.errorMessage))
+                error => dispatch(showNotification(error.response.data.errorMessage, true))
             );
     }
 }

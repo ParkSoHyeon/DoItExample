@@ -4,16 +4,17 @@ import Toast from "../../../doit-ui/Toast";
 
 class Notification extends PureComponent {
     render() {
-        const { hasError, errorMessage } = this.props;
-        return hasError && (
-            <Toast message={errorMessage} warning />
+        const { showMessage, message, warning } = this.props;
+        return showMessage && (
+            <Toast message={message} warning={warning} />
         )
     }
 }
 
 Notification.propTypes = {
-    hasError: PropTypes.bool,
-    errorMessage: PropTypes.string,
+    showMessage: PropTypes.bool,
+    message: PropTypes.string,
+    warning: PropTypes.bool,
 }
 
 export default Notification;
