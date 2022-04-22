@@ -2,11 +2,13 @@ import {createStore, combineReducers, applyMiddleware} from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducers from "../reducers";
 import thunk from "redux-thunk";
+
+import transactionEffects from "../middlewares/transactionEffects";
 import notificationEffects from "../middlewares/notificationEffects";
+import { middleware as reduxPackMiddleware } from 'redux-pack';
 
 // 미들웨어 동작 sample
-import {SET_TRANSACTION_LIST} from "../actions/transactionActions";
-import transactionEffects from "../middlewares/transactionEffects";
+// import {SET_TRANSACTION_LIST} from "../actions/transactionActions";
 // const customMiddleware2 = store => nextRunner => action => {
 //     console.log('미들웨어2에 전달된 액션 객체', action);
 //     console.log('미들웨어2 실행 전', store.getState());
@@ -43,5 +45,5 @@ import transactionEffects from "../middlewares/transactionEffects";
 export default initState => createStore(
     combineReducers(reducers),
     initState,
-    composeWithDevTools(applyMiddleware(thunk, notificationEffects, transactionEffects)),
+    composeWithDevTools(applyMiddleware(thunk, reduxPackMiddleware, notificationEffects, transactionEffects)),
 )
